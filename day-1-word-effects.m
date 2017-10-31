@@ -25,6 +25,8 @@ int main(int argc, const char * argv[]) {
             
             printf("Your string is %s\n", inputChars);
             NSString *inputString = [NSString stringWithUTF8String:inputChars];
+            NSString *editedInput = [inputString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+
             
             int choice;
             
@@ -61,8 +63,6 @@ int main(int argc, const char * argv[]) {
                     break;
                 case 4:
                 {
-                    NSString *editedInput = [inputString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-                    
                     NSString *canadianMode = @", eh?";
                     
                     NSString *canadianizedString = [editedInput stringByAppendingString:canadianMode];
@@ -72,9 +72,9 @@ int main(int argc, const char * argv[]) {
                     break;
                 case 5:
                 {
-                    if ([editedInput hasSuffix:@"!"]) {
+                    if ([editedInput hasSuffix:@"!"] == YES) {
                         NSLog(@"Whoa mate! Calm down");
-                    } else if ([editedInput hasSuffix:@"?"]) {
+                    } else if ([editedInput hasSuffix:@"?"] == YES) {
                         NSLog(@"Did you ask something?");
                     } else {
                         NSLog(@"I don't know what to do.");
